@@ -14,7 +14,7 @@ namespace CsharpBot
 {
     class Program
     {
-        public static string Token = @"849678181:AAHMNz9KuZf9vngnALHKxr_oX6h6AOusa2w";
+        public static string Token = @"YOUR TOKEN HERE";
         public static int LastUpdateID = 0;
 
         static void Main(string[] args)
