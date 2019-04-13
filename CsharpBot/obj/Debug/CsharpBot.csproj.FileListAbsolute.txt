@@ -1,7 +1,0 @@
-C:\Users\Fln1k\source\repos\CsharpBot\CsharpBot\bin\Debug\CsharpBot.exe.config
-C:\Users\Fln1k\source\repos\CsharpBot\CsharpBot\bin\Debug\CsharpBot.exe
-C:\Users\Fln1k\source\repos\CsharpBot\CsharpBot\bin\Debug\CsharpBot.pdb
-C:\Users\Fln1k\source\repos\CsharpBot\CsharpBot\obj\Debug\CsharpBot.csprojAssemblyReference.cache
-C:\Users\Fln1k\source\repos\CsharpBot\CsharpBot\obj\Debug\CsharpBot.csproj.CoreCompileInputs.cache
-C:\Users\Fln1k\source\repos\CsharpBot\CsharpBot\obj\Debug\CsharpBot.exe
-C:\Users\Fln1k\source\repos\CsharpBot\CsharpBot\obj\Debug\CsharpBot.pdb
