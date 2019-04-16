@@ -1,7 +1,5 @@
 import sys
 import sqlite3
-import logging
-import telebot
 
 
 class SQL:
@@ -42,7 +40,7 @@ class SQL:
 				return("don't uderstand")
 			return data[search_index][1]
 
-sql = SQL(r"C:\Users\Fln1k\Desktop\revcom_bot\revcom_bot\bin\Debug\Database.db")
+sql = SQL(r"C:\Users\Fln1k\source\repos\CsharpBot\revcom_bot\bin\Debug\Database.db")
 pointer = 1
 request = ""
 while True:
