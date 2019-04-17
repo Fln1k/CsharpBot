@@ -80,6 +80,7 @@ namespace revcom_bot
                 // Callback'и от кнопок
                 Bot.OnCallbackQuery += async (object sc, Telegram.Bot.Args.CallbackQueryEventArgs ev) =>
                 {
+                    string _message = "";
                     var message = ev.CallbackQuery.Message;
                     if(previous.ToLower() == "меню")
                     {
@@ -87,72 +88,84 @@ namespace revcom_bot
                         {
                             Order.Ord.Add("Рисовая каша с кокосовым молоком - 220 г. - 3.50 р.");
                             Order.Price.Add(3.5);
+                            _message = "Рисовая каша с кокосовым молоком";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Клаб сэндвич")
                         {
                             Order.Ord.Add("Клаб сэндвич с цыпленком  - 300 г. - 9.00 р.");
                             Order.Price.Add(9.0);
+                            _message = "Клаб сэндвич с цыпленком";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Салат")
                         {
                             Order.Ord.Add("Салат с печеной тыквой и ореховым соусом - 150 г. - 5.50 р.");
                             Order.Price.Add(5.5);
+                            _message = "Салат с печеной тыквой и ореховым соусом";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Спагетти болоньезе")
                         {
                             Order.Ord.Add("Спагетти болоньезе с сыром Грана Падано  - 325 г. - 7.00 р.");
                             Order.Price.Add(7.0);
+                            _message = "Спагетти болоньезе с сыром Грана Падано";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Суп")
                         {
                             Order.Ord.Add("Суп Минестроне - 270 г. - 4.00 р.");
                             Order.Price.Add(4.0);
+                            _message = "Суп Минестроне";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Цветная капуста")
                         {
                             Order.Ord.Add("Цветная капуста с копченым соусом Чеддер  - 262 г. - 10.00 р.");
                             Order.Price.Add(10.0);
+                            _message = "Цветная капуста с копченым соусом Чеддер";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Говядина")
                         {
                             Order.Ord.Add("Говядина с вялеными грибами, соус демиглас - 330 г. - 24.00 р.");
                             Order.Price.Add(24.0);
+                            _message = "Говядина с вялеными грибами, соус демиглас";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Ризотто")
                         {
                             Order.Ord.Add("Ризотто с морепродуктами, соус биск  - 340 г. - 24.00 р.");
                             Order.Price.Add(24.0);
+                            _message = "Ризотто с морепродуктами, соус биск";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Ginger Ale")
                         {
                             Order.Ord.Add("Ginger Ale - 250 г. - 3.50 р.");
                             Order.Price.Add(3.5);
+                            _message = "Ginger Ale";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Сок виноградный")
                         {
                             Order.Ord.Add("Сок виноградный  - 200 г. - 2.00 р.");
                             Order.Price.Add(2.0);
+                            _message = "Сок виноградный";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Сок апельсиновый")
                         {
-                            Order.Ord.Add("Сок виноградный  - 200 г. - 2.00 р.");
+                            Order.Ord.Add("Сок апельсиновый  - 200 г. - 2.00 р.");
                             Order.Price.Add(2.0);
+                            _message = "Сок апельсиновый";
                         }
                         else
                     if (ev.CallbackQuery.Data == "Pepsi")
                         {
                             Order.Ord.Add("Pepsi - 250 г. - 3.50 р.");
                             Order.Price.Add(3.5);
+                            _message = "Pepsi";
                         }
                         ShowRBut = false;
                         var keyboard = new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
@@ -170,7 +183,7 @@ namespace revcom_bot
                                         },
                             ResizeKeyboard = true
                         };
-                        await Bot.SendTextMessageAsync(message.Chat.Id, "Added", false, false, 0, keyboard, Telegram.Bot.Types.Enums.ParseMode.Default);
+                        await Bot.SendTextMessageAsync(message.Chat.Id, "Added "+_message, false, false, 0, keyboard, Telegram.Bot.Types.Enums.ParseMode.Default);
                     }
                     if(previous == "бронировать столик")
                     {
