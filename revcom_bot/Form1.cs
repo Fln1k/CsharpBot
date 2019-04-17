@@ -20,6 +20,7 @@ namespace revcom_bot
     }
     public partial class Form1 : Form
     {
+        int Day = 0;
         BackgroundWorker bw;
         bool ShowRBut = true;
         string previous = "";
@@ -80,76 +81,83 @@ namespace revcom_bot
                 Bot.OnCallbackQuery += async (object sc, Telegram.Bot.Args.CallbackQueryEventArgs ev) =>
                 {
                     var message = ev.CallbackQuery.Message;
-                    if(ev.CallbackQuery.Data == "Рисовая каша") {
-                        Order.Ord.Add("Рисовая каша с кокосовым молоком - 220 г. - 3.50 р.");
-                        Order.Price.Add(3.5);
-                    } else 
+                    if(previous.ToLower() == "меню")
+                    {
+                        if (ev.CallbackQuery.Data == "Рисовая каша")
+                        {
+                            Order.Ord.Add("Рисовая каша с кокосовым молоком - 220 г. - 3.50 р.");
+                            Order.Price.Add(3.5);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Клаб сэндвич")
-                    {
-                        Order.Ord.Add("Клаб сэндвич с цыпленком  - 300 г. - 9.00 р.");
-                        Order.Price.Add(9.0);
-                    } else
+                        {
+                            Order.Ord.Add("Клаб сэндвич с цыпленком  - 300 г. - 9.00 р.");
+                            Order.Price.Add(9.0);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Салат")
-                    {
-                        Order.Ord.Add("Салат с печеной тыквой и ореховым соусом - 150 г. - 5.50 р.");
-                        Order.Price.Add(5.5);
-                    } else
+                        {
+                            Order.Ord.Add("Салат с печеной тыквой и ореховым соусом - 150 г. - 5.50 р.");
+                            Order.Price.Add(5.5);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Спагетти болоньезе")
-                    {
-                        Order.Ord.Add("Спагетти болоньезе с сыром Грана Падано  - 325 г. - 7.00 р.");
-                        Order.Price.Add(7.0);
-                    } else
+                        {
+                            Order.Ord.Add("Спагетти болоньезе с сыром Грана Падано  - 325 г. - 7.00 р.");
+                            Order.Price.Add(7.0);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Суп")
-                    {
-                        Order.Ord.Add("Суп Минестроне - 270 г. - 4.00 р.");
-                        Order.Price.Add(4.0);
-                    }   
-                    else
+                        {
+                            Order.Ord.Add("Суп Минестроне - 270 г. - 4.00 р.");
+                            Order.Price.Add(4.0);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Цветная капуста")
-                    {
-                        Order.Ord.Add("Цветная капуста с копченым соусом Чеддер  - 262 г. - 10.00 р.");
-                        Order.Price.Add(10.0);
-                    }
-                    else
+                        {
+                            Order.Ord.Add("Цветная капуста с копченым соусом Чеддер  - 262 г. - 10.00 р.");
+                            Order.Price.Add(10.0);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Говядина")
-                    {
-                        Order.Ord.Add("Говядина с вялеными грибами, соус демиглас - 330 г. - 24.00 р.");
-                        Order.Price.Add(24.0);
-                    }
-                    else
+                        {
+                            Order.Ord.Add("Говядина с вялеными грибами, соус демиглас - 330 г. - 24.00 р.");
+                            Order.Price.Add(24.0);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Ризотто")
-                    {
-                        Order.Ord.Add("Ризотто с морепродуктами, соус биск  - 340 г. - 24.00 р.");
-                        Order.Price.Add(24.0);
-                    }
-                    else
+                        {
+                            Order.Ord.Add("Ризотто с морепродуктами, соус биск  - 340 г. - 24.00 р.");
+                            Order.Price.Add(24.0);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Ginger Ale")
-                    {
-                        Order.Ord.Add("Ginger Ale - 250 г. - 3.50 р.");
-                        Order.Price.Add(3.5);
-                    }
-                    else
+                        {
+                            Order.Ord.Add("Ginger Ale - 250 г. - 3.50 р.");
+                            Order.Price.Add(3.5);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Сок виноградный")
-                    {
-                        Order.Ord.Add("Сок виноградный  - 200 г. - 2.00 р.");
-                        Order.Price.Add(2.0);
-                    }
-                    else
+                        {
+                            Order.Ord.Add("Сок виноградный  - 200 г. - 2.00 р.");
+                            Order.Price.Add(2.0);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Сок апельсиновый")
-                    {
-                        Order.Ord.Add("Сок виноградный  - 200 г. - 2.00 р.");
-                        Order.Price.Add(2.0);
-                    }
-                    else
+                        {
+                            Order.Ord.Add("Сок виноградный  - 200 г. - 2.00 р.");
+                            Order.Price.Add(2.0);
+                        }
+                        else
                     if (ev.CallbackQuery.Data == "Pepsi")
-                    {
-                        Order.Ord.Add("Pepsi - 250 г. - 3.50 р.");
-                        Order.Price.Add(3.5);
-                    }
-                    ShowRBut = false;
-                    var keyboard = new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
-                    {
-                        Keyboard = new[] {
+                        {
+                            Order.Ord.Add("Pepsi - 250 г. - 3.50 р.");
+                            Order.Price.Add(3.5);
+                        }
+                        ShowRBut = false;
+                        var keyboard = new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
+                        {
+                            Keyboard = new[] {
                                             new[] // row 1
                                             {
                                                 new Telegram.Bot.Types.KeyboardButton("Отправить заказ"),
@@ -160,9 +168,53 @@ namespace revcom_bot
                                                 new Telegram.Bot.Types.KeyboardButton("Корзина ["+Order.Ord.Count.ToString()+"]"),
                                             },
                                         },
-                        ResizeKeyboard = true
-                    };
-                    await Bot.SendTextMessageAsync(message.Chat.Id, "Added", false, false, 0, keyboard, Telegram.Bot.Types.Enums.ParseMode.Default);
+                            ResizeKeyboard = true
+                        };
+                        await Bot.SendTextMessageAsync(message.Chat.Id, "Added", false, false, 0, keyboard, Telegram.Bot.Types.Enums.ParseMode.Default);
+                    }
+                    if(previous == "бронировать столик")
+                    {
+                        Day = Convert.ToInt32(ev.CallbackQuery.Data.ToString());
+                        previous = "время";
+                        var keyboard = new Telegram.Bot.Types.ReplyMarkups.InlineKeyboardMarkup(
+                        new Telegram.Bot.Types.InlineKeyboardButton[][]
+                        {
+                                                            // First row
+                                                            new [] {
+                                                                new Telegram.Bot.Types.InlineKeyboardButton("16-17","16-17"),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton("17-18","17-18"),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton("18-19","18-19"),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton("20-21","20-21"),
+                                                            },
+                        }
+                        );
+                        await Bot.SendTextMessageAsync(message.Chat.Id, "Выберите время", false, false, 0, keyboard, Telegram.Bot.Types.Enums.ParseMode.Default);
+                        goto End;
+                    }
+                    if (previous == "время")
+                    {
+                        previous = "точное время";
+                        var keyboard = new Telegram.Bot.Types.ReplyMarkups.InlineKeyboardMarkup(
+                        new Telegram.Bot.Types.InlineKeyboardButton[][]
+                        {
+                                                            // First row
+                                                            new [] {
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(ev.CallbackQuery.Data[0].ToString() + ev.CallbackQuery.Data[1].ToString()+":00",ev.CallbackQuery.Data[0].ToString() + ev.CallbackQuery.Data[1].ToString()+":00"),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(ev.CallbackQuery.Data[0].ToString() + ev.CallbackQuery.Data[1].ToString()+":20",ev.CallbackQuery.Data[0].ToString() + ev.CallbackQuery.Data[1].ToString()+":20"),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(ev.CallbackQuery.Data[0].ToString() + ev.CallbackQuery.Data[1].ToString()+":40",ev.CallbackQuery.Data[0].ToString() + ev.CallbackQuery.Data[1].ToString()+":40"),
+                                                            },
+                        }
+                        );
+                        await Bot.SendTextMessageAsync(message.Chat.Id, "Выберите точное время", false, false, 0, keyboard, Telegram.Bot.Types.Enums.ParseMode.Default);
+                        goto End;
+                    }
+                    if (previous == "точное время")
+                    {
+                        previous = "";
+                        await Bot.SendTextMessageAsync(message.Chat.Id, "Ваш стол успешно забронирован на "+ Day+" число на "+ ev.CallbackQuery.Data+".");
+                    }
+                End:
+                    int a = 0;
                 };
 
                 Bot.OnUpdate += async (object su, Telegram.Bot.Args.UpdateEventArgs evu) =>
@@ -323,8 +375,33 @@ namespace revcom_bot
                         if (message.Text.ToLower() == "бронировать столик")
                         {
                             previous = "бронировать столик";
-                            string date = DateTime.Now.ToString("dd MMMM yyyy | HH:mm:ss");
-                            await Bot.SendTextMessageAsync(message.Chat.Id, date);
+                            var keyboard = new Telegram.Bot.Types.ReplyMarkups.InlineKeyboardMarkup(
+                        new Telegram.Bot.Types.InlineKeyboardButton[][]
+                        {
+                                                            // First row
+                                                            new [] {
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(1).ToString("dd"),DateTime.Now.AddDays(1).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(2).ToString("dd"),DateTime.Now.AddDays(2).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(3).ToString("dd"),DateTime.Now.AddDays(3).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(4).ToString("dd"),DateTime.Now.AddDays(4).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(5).ToString("dd"),DateTime.Now.AddDays(5).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(6).ToString("dd"),DateTime.Now.AddDays(6).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(7).ToString("dd"),DateTime.Now.AddDays(7).ToString("dd")),
+                                                            },
+                                                            new[]
+                                                            {
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(8).ToString("dd"),DateTime.Now.AddDays(8).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(9).ToString("dd"),DateTime.Now.AddDays(9).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(10).ToString("dd"),DateTime.Now.AddDays(10).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(11).ToString("dd"),DateTime.Now.AddDays(11).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(12).ToString("dd"),DateTime.Now.AddDays(12).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(13).ToString("dd"),DateTime.Now.AddDays(13).ToString("dd")),
+                                                                new Telegram.Bot.Types.InlineKeyboardButton(DateTime.Now.AddDays(14).ToString("dd"),DateTime.Now.AddDays(14).ToString("dd")),
+                                                            },
+                            }
+                        );
+
+                            await Bot.SendTextMessageAsync(message.Chat.Id, "Выберите дату", false, false, 0, keyboard, Telegram.Bot.Types.Enums.ParseMode.Default);
                         }
                         else
                         if (message.Text.ToLower() == "оставить отзыв")
